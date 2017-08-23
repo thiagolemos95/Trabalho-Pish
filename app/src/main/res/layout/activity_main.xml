@@ -9,36 +9,17 @@
     android:baselineAligned="false"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/CarregarImagem"
-        android:layout_width="366dp"
-        android:layout_height="46dp"
-        android:text="CARREGAR IMAGEM"
-        tools:layout_editor_absoluteY="7dp"
-        tools:layout_editor_absoluteX="9dp" />
-
-    <EditText
-        android:id="@+id/txtUrl"
-        android:layout_width="358dp"
-        android:layout_height="36dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="66dp"
-        android:layout_below="@+id/CarregarImagem"
-        android:layout_alignStart="@+id/imvImagem"
-        android:layout_marginTop="14dp" />
-
 
     <ImageView
-        android:id="@+id/imvImagem"
+        android:id="@+id/vImage"
         android:layout_width="360dp"
         android:layout_height="274dp"
         app:srcCompat="?android:attr/actionModeBackground"
         tools:layout_editor_absoluteX="9dp"
         tools:layout_editor_absoluteY="115dp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/spinner1"
+        android:layout_marginTop="53dp" />
 
     <Spinner
         android:id="@+id/spinner1"

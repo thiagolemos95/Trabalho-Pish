@@ -7,7 +7,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
@@ -21,27 +20,23 @@ public class MainActivity extends AppCompatActivity {
 
     private Spinner spinner1;
     private Button btnSubmit;
-    private TextView txtUrl; //Variável privada do tipo TextView
-    private ImageView imvImagem; //Variável privada do tipo ImageView
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        txtUrl = (TextView) findViewById(R.id.txtUrl); //Fazemos um CAST da variável txtUrl e associamos ela ao componente txtUrl presente na View.
-        imvImagem = (ImageView) findViewById(R.id.imvImagem); //Fazemos um CAST da variável imvImagem e associamos ela ao componente imvImagem presente na View.
+        CarregarImagem();
         addItemsOnSpinner2();
         addListenerOnButton();
         addListenerOnSpinnerItemSelection();
 
     }
 
-    // add items into spinner dynamically
-    public void CarregarImagem(View v) {
-        Picasso.with(v.getContext()).load(txtUrl.getText().toString()).into(imvImagem);
-        /*
-        *Picasso.with(Aqui vem o contexto).load(URL da imagem).into(ImageView responsável pelo render);
-        *
-        * */
+
+    public void CarregarImagem() {
+
+        ImageView  vImage = (ImageView) findViewById(R.id.vImage);
+        Picasso.with(MainActivity.this).load("https://raw.githubusercontent.com/BernardoM/Trabalho-Pish/master/app/src/main/res/drawable/img.png").into(vImage);
     }
     public void addItemsOnSpinner2() {
 
