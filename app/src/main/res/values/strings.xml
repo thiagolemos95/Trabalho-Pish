@@ -14,8 +14,95 @@
     <item>900g</item>
     <item>1000g</item>
 </string-array>
-    <string-array name="images">
-        <item>https://drive.google.com/file/d/0B2n62yRChFYyQ3hJU1h5TDdVRXM/view</item>
+    <string-array name="horas">
+        <item>00 horas</item>
+        <item>01 horas</item>
+        <item>02 horas</item>
+        <item>03 horas</item>
+        <item>04 horas</item>
+        <item>05 horas</item>
+        <item>06 horas</item>
+        <item>07 horas</item>
+        <item>08 horas</item>
+        <item>09 horas</item>
+        <item>10 horas</item>
+        <item>11 horas</item>
+        <item>12 horas</item>
+        <item>13 horas</item>
+        <item>14 horas</item>
+        <item>15 horas</item>
+        <item>16 horas</item>
+        <item>17 horas</item>
+        <item>18 horas</item>
+        <item>19 horas</item>
+        <item>20 horas</item>
+        <item>21 horas</item>
+        <item>22 horas</item>
+        <item>23 horas</item>
+        <item>24 horas</item>
+    </string-array>
+    <string-array name="minutos">
+        <item>00 minutos</item>
+        <item>01 minutos</item>
+        <item>02 minutos</item>
+        <item>03 minutos</item>
+        <item>04 minutos</item>
+        <item>05 minutos</item>
+        <item>06 minutos</item>
+        <item>07 minutos</item>
+        <item>08 minutos</item>
+        <item>09 minutos</item>
+        <item>10 minutos</item>
+        <item>11 minutos</item>
+        <item>12 minutos</item>
+        <item>13 minutos</item>
+        <item>14 minutos</item>
+        <item>15 minutos</item>
+        <item>16 minutos</item>
+        <item>17 minutos</item>
+        <item>18 minutos</item>
+        <item>19 minutos</item>
+        <item>20 minutos</item>
+        <item>21 minutos</item>
+        <item>22 minutos</item>
+        <item>23 minutos</item>
+        <item>24 minutos</item>
+        <item>25 minutos</item>
+        <item>26 minutos</item>
+        <item>27 minutos</item>
+        <item>28 minutos</item>
+        <item>29 minutos</item>
+        <item>30 minutos</item>
+        <item>31 minutos</item>
+        <item>32 minutos</item>
+        <item>33 minutos</item>
+        <item>34 minutos</item>
+        <item>35 minutos</item>
+        <item>36 minutos</item>
+        <item>37 minutos</item>
+        <item>38 minutos</item>
+        <item>39 minutos</item>
+        <item>40 minutos</item>
+        <item>41 minutos</item>
+        <item>42 minutos</item>
+        <item>43 minutos</item>
+        <item>44 minutos</item>
+        <item>45 minutos</item>
+        <item>46 minutos</item>
+        <item>47 minutos</item>
+        <item>48 minutos</item>
+        <item>49 minutos</item>
+        <item>50 minutos</item>
+        <item>51 minutos</item>
+        <item>52 minutos</item>
+        <item>53 minutos</item>
+        <item>54 minutos</item>
+        <item>55 minutos</item>
+        <item>56 minutos</item>
+        <item>57 minutos</item>
+        <item>58 minutos</item>
+        <item>59 minutos</item>
 
     </string-array>
+
 </resources>
