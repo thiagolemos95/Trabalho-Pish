@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+
+    android:weightSum="1"
+    android:baselineAligned="false"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/CarregarImagem"
+        android:layout_width="366dp"
+        android:layout_height="46dp"
+        android:text="CARREGAR IMAGEM"
+        tools:layout_editor_absoluteY="7dp"
+        tools:layout_editor_absoluteX="9dp" />
+
+    <EditText
+        android:id="@+id/txtUrl"
+        android:layout_width="358dp"
+        android:layout_height="36dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="66dp"
+        android:layout_below="@+id/CarregarImagem"
+        android:layout_alignStart="@+id/imvImagem"
+        android:layout_marginTop="14dp" />
+
+
+    <ImageView
+        android:id="@+id/imvImagem"
+        android:layout_width="360dp"
+        android:layout_height="274dp"
+        app:srcCompat="?android:attr/actionModeBackground"
+        tools:layout_editor_absoluteX="9dp"
+        tools:layout_editor_absoluteY="115dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="375dp"
+        android:layout_height="30dp"
+        android:entries="@array/Quantidade"
+        android:prompt="@string/country_prompt"
+        android:visibility="visible"
+        android:layout_weight="0.08"
+        tools:layout_editor_absoluteY="405dp"
+        tools:layout_editor_absoluteX="5dp"
+        android:layout_above="@+id/button"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+
+        android:id="@+id/button"
+        android:layout_width="282dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill_horizontal"
+        android:text="ALIMENTAR"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        tools:layout_editor_absoluteY="447dp"
+        tools:layout_editor_absoluteX="51dp" />
+
+</RelativeLayout>
