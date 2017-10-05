@@ -1,5 +1,7 @@
 package com.pish.view;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,16 +12,26 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.google.gson.Gson;
 import com.pish.R;
 import com.pish.adapter.Lancamento_Adapter;
+import com.pish.connection.Connection;
 import com.pish.dao.Lancamento_Dao;
+import com.pish.helper.Lancamento_Helper;
 import com.pish.model.Lancamento;
+import com.pish.task.Post_Lancamento_Json;
 
 import java.util.List;
+
+import javax.net.ssl.HttpsURLConnection;
 
 public class Lancamento_List_Activity extends AppCompatActivity
 {
     private ListView list_lancamento;
+    private Lancamento_Helper l_helper;
+    private Gson gson;
+    private Lancamento_Dao l_dao;
+    public static Lancamento l_tb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -59,10 +71,9 @@ public class Lancamento_List_Activity extends AppCompatActivity
     private void loadLancamentoList()
     {
         Lancamento_Dao l_dao = new Lancamento_Dao(this);
-        List<Lancamento> lancamentos = l_dao.getLancamentos();
+        List<Lancamento> lancamentos = l_dao.getLancamentos(this);
         l_dao.close();
 
-        //ArrayAdapter<Aluno> adapter = new ArrayAdapter<Aluno>(this, android.R.layout.simple_list_item_1, alunos);
         Lancamento_Adapter adapter = new Lancamento_Adapter(this, lancamentos);
         list_lancamento.setAdapter(adapter);
     }
@@ -78,27 +89,53 @@ public class Lancamento_List_Activity extends AppCompatActivity
     public void onCreateContextMenu(ContextMenu menu, View v, final ContextMenu.ContextMenuInfo menuInfo)
     {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
-        final Lancamento l_tb = (Lancamento) list_lancamento.getItemAtPosition(info.position);
+        l_tb = (Lancamento) list_lancamento.getItemAtPosition(info.position);
 
-        MenuItem itemLigar = menu.add("Ligar");
-        itemLigar.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener()
+        MenuItem send = menu.add("Enviar Lançamento");
+
+        send.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener()
         {
             @Override
             public boolean onMenuItemClick(MenuItem item)
             {
+                gson            = new Gson();
+
+                updateStatus(l_tb);
+
+                l_helper.json 	= gson.toJson(l_tb);
+
+                new Post_Lancamento_Json(Lancamento_List_Activity.this, ProgressDialog.STYLE_HORIZONTAL).execute();
+
                 return false;
             }
         });
 
-        MenuItem deletar = menu.add("Deletar");
+        MenuItem delete = menu.add("Excluir Lancamento");
 
-        deletar.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener()
+        delete.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener()
         {
             @Override
             public boolean onMenuItemClick(MenuItem item)
             {
+                l_dao = new Lancamento_Dao(Lancamento_List_Activity.this);
+                l_dao.delete(l_tb);
+                l_dao.close();
+
+                loadLancamentoList();
                 return false;
             }
         });
+    }
+
+    public void updateStatus(Lancamento l_tb)
+    {
+        if (Connection.servResultPost == HttpsURLConnection.HTTP_OK)
+        {
+            l_dao = new Lancamento_Dao(this);
+            l_tb.setStatus("Enviado");
+            l_dao.update(l_tb);
+            l_dao.close();
+            loadLancamentoList();
+        }
     }
 }

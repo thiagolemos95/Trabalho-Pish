@@ -59,13 +59,13 @@ public class Lancamento_Adapter extends BaseAdapter
         }
 
         TextView data_lancamento = (TextView) view.findViewById(R.id.item_data);
-        data_lancamento.setText(l_tb.getDataLancamento());
+        data_lancamento.setText(l_tb.getData_lancamento());
 
         TextView status = (TextView) view.findViewById(R.id.item_status);
         status.setText(l_tb.getStatus());
 
         TextView qnt = (TextView) view.findViewById(R.id.item_qnt);
-        qnt.setText(l_tb.getQuantidadeRealizada());
+        qnt.setText(l_tb.getQuantidade_realizada());
 
         return view;
     }

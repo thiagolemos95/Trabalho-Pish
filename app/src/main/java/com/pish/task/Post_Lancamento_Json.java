@@ -7,8 +7,11 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.pish.connection.Connection;
 import com.pish.helper.Lancamento_Helper;
+import com.pish.model.Lancamento;
 import com.pish.view.Cadastro_Lancamento_Activity;
+import com.pish.view.Lancamento_List_Activity;
 
 import java.io.IOException;
 import java.io.PrintStream;
@@ -21,6 +24,8 @@ import javax.net.ssl.HttpsURLConnection;
 
 import cz.msebera.android.httpclient.HttpResponse;
 
+import static com.pish.connection.Connection.servResultPost;
+
 /**
  * Created by Pc-Joao on 03/10/2017.
  */
@@ -30,16 +35,16 @@ public class Post_Lancamento_Json extends AsyncTask<Object, Integer, String>
     private Context ctx;
     public ProgressDialog mProgress;
     private int mProgressDialog = 0;
-    public static int servResultPost;
     private Lancamento_Helper l_helper;
-    public static int servResultGet;
-    private HttpResponse resposta;
+    private String status;
+    private Lancamento_List_Activity lla;
 
     public Post_Lancamento_Json(Context ctx, int progressDialog)
     {
         this.ctx = ctx;
         this.mProgressDialog = progressDialog;
         l_helper = new Lancamento_Helper(ctx);
+        lla = new Lancamento_List_Activity();
     }
 
     @Override
@@ -52,7 +57,7 @@ public class Post_Lancamento_Json extends AsyncTask<Object, Integer, String>
         if (mProgressDialog == ProgressDialog.STYLE_HORIZONTAL)
         {
             mProgress.setIndeterminate(false);
-            mProgress.setMax(0);
+            mProgress.setMax(100);
             mProgress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
             mProgress.setCancelable(false);
         }
@@ -70,58 +75,31 @@ public class Post_Lancamento_Json extends AsyncTask<Object, Integer, String>
     @Override
     protected String doInBackground(Object... params)
     {
-        return postJson(l_helper.json);
+        try
+        {
+            status = new Connection("http://alimentador.herokuapp.com/api/lancamento/", ctx).postJson(l_helper.json);
+        }
+        catch (Exception e)
+        {
+            Log.i("POSTJSON", e.toString());
+            e.printStackTrace();
+        }
+        return status;
     }
 
     @Override
-    protected void onPostExecute(String json)
+    protected void onPostExecute(String status)
     {
-        if (json != null)
+        if (status != "null" && Connection.servResultPost == HttpsURLConnection.HTTP_OK)
         {
-            if (servResultPost != HttpsURLConnection.HTTP_OK)
-            {
-                Toast.makeText(ctx, "Impossível estabelecer conexão com o Servidor.", Toast.LENGTH_SHORT).show();
-                mProgress.dismiss();
-            }
-            else
-            {
-                Toast.makeText(ctx, "Lancamento efetuado com sucesso!", Toast.LENGTH_SHORT).show();
-                mProgress.dismiss();
-            }
+            //lla.updateStatus(Lancamento_List_Activity.l_tb, ctx);
+            Toast.makeText(ctx, "Lancamento Enviado com sucesso!", Toast.LENGTH_SHORT).show();
+            mProgress.dismiss();
         }
-    }
-
-    public String postJson(String json)
-    {
-        try
+        else
         {
-            URL _url = new URL("http://alimentador01.herokuapp.com/api/lancamento");
-            HttpURLConnection connection = (HttpURLConnection) _url.openConnection();
-            connection.setRequestProperty("Content-type", "application/json");
-            connection.setRequestProperty("Accept", "application/json");
-
-            connection.setDoOutput(true);
-
-            PrintStream output = new PrintStream(connection.getOutputStream());
-            output.println(json);
-
-            connection.connect();
-
-            Scanner scanner = new Scanner(connection.getInputStream());
-            String resposta = scanner.next();
-
-            this.servResultPost = connection.getResponseCode();
-
-            return resposta;
+            Toast.makeText(ctx, "Impossível estabelecer conexão com o Banco Dados do Servidor.", Toast.LENGTH_SHORT).show();
+            mProgress.dismiss();
         }
-        catch (MalformedURLException e)
-        {
-            e.printStackTrace();
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-        return String.valueOf(resposta);
     }
 }

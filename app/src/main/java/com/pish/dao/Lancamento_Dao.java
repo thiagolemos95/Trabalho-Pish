@@ -62,18 +62,18 @@ public class Lancamento_Dao extends SQLiteOpenHelper
     private ContentValues getDados(Lancamento l_tb)
     {
         ContentValues dados = new ContentValues();
-        dados.put("data_cadastro", l_tb.getDataCadastro());
-        dados.put("data_lancamento", l_tb.getDataLancamento());
-        dados.put("tipo_lancamento", l_tb.getTipoLancamento());
+        dados.put("data_cadastro", l_tb.getData_cadastro());
+        dados.put("data_lancamento", l_tb.getData_lancamento());
+        dados.put("tipo_lancamento", l_tb.getTipo_lancamento());
         dados.put("hora", l_tb.getHora());
         dados.put("minuto", l_tb.getMinutos());
-        dados.put("quantidade_prevista", l_tb.getQuantidadePrevista());
-        dados.put("quantidade_realizado", l_tb.getQuantidadeRealizada());
+        dados.put("quantidade_prevista", l_tb.getQuantidade_prevista());
+        dados.put("quantidade_realizado", l_tb.getQuantidade_realizada());
         dados.put("status", l_tb.getStatus());
         return dados;
     }
 
-    public List<Lancamento> getLancamentos()
+    public List<Lancamento> getLancamentos(Context ctx)
     {
         String sql = "SELECT * FROM Lancamento;";
         SQLiteDatabase db = getReadableDatabase();
@@ -85,13 +85,13 @@ public class Lancamento_Dao extends SQLiteOpenHelper
         {
             Lancamento l_tb = new Lancamento();
             l_tb.setId(c.getLong(c.getColumnIndex("id")));
-            l_tb.setDataCadastro(c.getString(c.getColumnIndex("data_cadastro")));
-            l_tb.setDataLancamento(c.getString(c.getColumnIndex("data_lancamento")));
-            l_tb.setTipoLancamento(c.getString(c.getColumnIndex("tipo_lancamento")));
+            l_tb.setData_cadastro(c.getString(c.getColumnIndex("data_cadastro")));
+            l_tb.setData_lancamento(c.getString(c.getColumnIndex("data_lancamento")));
+            l_tb.setTipo_lancamento(c.getString(c.getColumnIndex("tipo_lancamento")));
             l_tb.setHora(c.getInt(c.getColumnIndex("hora")));
             l_tb.setMinutos(c.getInt(c.getColumnIndex("minuto")));
-            l_tb.setQuantidadePrevista(c.getString(c.getColumnIndex("quantidade_prevista")));
-            l_tb.setQuantidadeRealizada(c.getString(c.getColumnIndex("quantidade_realizado")));
+            l_tb.setQuantidade_prevista(c.getString(c.getColumnIndex("quantidade_prevista")));
+            l_tb.setQuantidade_realizada(c.getString(c.getColumnIndex("quantidade_realizado")));
             l_tb.setStatus(c.getString(c.getColumnIndex("status")));
 
             lancamentos.add(l_tb);

@@ -11,109 +11,98 @@ import java.util.Date;
 
 public class Lancamento  implements Serializable
 {
-    public Long Id;
+    public Long id;
 
-    public String DataCadastro;
+    public String data_cadastro;
 
-    public String DataLancamento;
+    public String data_lancamento;
 
-    public String TipoLancamento;
+    public String tipo_lancamento;
 
-    public int Hora;
+    public int hora;
 
-    public int Minutos;
+    public int minutos;
 
-    public String QuantidadePrevista;
+    public String quantidade_prevista;
 
-    public String QuantidadeRealizada;
+    public String quantidade_realizada;
 
-    public String Status;
+    public String status;
 
-    public Long getId()
-    {
-        return Id;
+    public Long getId() {
+        return id;
     }
 
-    public void setId(long id)
-    {
-        Id = id;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getDataCadastro() {
-        return DataCadastro;
+    public String getData_cadastro() {
+        return data_cadastro;
     }
 
-    public void setDataCadastro(String dataCadastro) {
-        DataCadastro = dataCadastro;
+    public void setData_cadastro(String data_cadastro) {
+        this.data_cadastro = data_cadastro;
     }
 
-    public String getDataLancamento() {
-        return DataLancamento;
+    public String getData_lancamento() {
+        return data_lancamento;
     }
 
-    public void setDataLancamento(String dataLancamento) {
-        DataLancamento = dataLancamento;
+    public void setData_lancamento(String data_lancamento) {
+        this.data_lancamento = data_lancamento;
     }
 
-    public String getTipoLancamento()
-    {
-        return TipoLancamento;
+    public String getTipo_lancamento() {
+        return tipo_lancamento;
     }
 
-    public void setTipoLancamento(String tipoLancamento)
-    {
-        TipoLancamento = tipoLancamento;
+    public void setTipo_lancamento(String tipo_lancamento) {
+        this.tipo_lancamento = tipo_lancamento;
     }
 
-    public int getHora()
-    {
-        return Hora;
+    public int getHora() {
+        return hora;
     }
 
-    public void setHora(int hora)
-    {
-        Hora = hora;
+    public void setHora(int hora) {
+        this.hora = hora;
     }
 
-    public int getMinutos()
-    {
-        return Minutos;
+    public int getMinutos() {
+        return minutos;
     }
 
-    public void setMinutos(int minutos)
-    {
-        Minutos = minutos;
+    public void setMinutos(int minutos) {
+        this.minutos = minutos;
     }
 
-    public String getQuantidadePrevista() {
-        return QuantidadePrevista;
+    public String getQuantidade_prevista() {
+        return quantidade_prevista;
     }
 
-    public void setQuantidadePrevista(String quantidadePrevista) {
-        QuantidadePrevista = quantidadePrevista;
+    public void setQuantidade_prevista(String quantidade_prevista) {
+        this.quantidade_prevista = quantidade_prevista;
     }
 
-    public String getQuantidadeRealizada() {
-        return QuantidadeRealizada;
+    public String getQuantidade_realizada() {
+        return quantidade_realizada;
     }
 
-    public void setQuantidadeRealizada(String quantidadeRealizada) {
-        QuantidadeRealizada = quantidadeRealizada;
+    public void setQuantidade_realizada(String quantidade_realizada) {
+        this.quantidade_realizada = quantidade_realizada;
     }
 
-    public String getStatus()
-    {
-        return Status;
+    public String getStatus() {
+        return status;
     }
 
-    public void setStatus(String status)
-    {
-        Status = status;
+    public void setStatus(String status) {
+        this.status = status;
     }
-
 
     @Override
     public String toString() {
-        return getId() + " - " + getDataLancamento();
+        return getId() + " - " + getData_lancamento();
     }
 }

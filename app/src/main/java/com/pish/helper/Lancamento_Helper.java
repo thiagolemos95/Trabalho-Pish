@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.pish.util.Constantes;
 import com.pish.util.CustomOnItemSelectedListener;
 import com.pish.R;
 import com.pish.model.Lancamento;
@@ -79,13 +80,13 @@ public class Lancamento_Helper
 
     public Lancamento getLancamento()
     {
-        l_tb.setDataCadastro(data_atual);
-        l_tb.setDataLancamento(data_atual);
-        l_tb.setTipoLancamento("Estantaneo");
+        l_tb.setData_cadastro(data_atual);
+        l_tb.setData_lancamento(data_atual);
+        l_tb.setTipo_lancamento("Estantaneo");
         l_tb.setHora(hora);
         l_tb.setMinutos(minuto);
-        l_tb.setQuantidadePrevista(qnt);
-        l_tb.setQuantidadeRealizada(qnt);
+        l_tb.setQuantidade_prevista(qnt);
+        l_tb.setQuantidade_realizada(qnt);
         l_tb.setStatus("Aguardando");
 
         return l_tb;
@@ -95,7 +96,7 @@ public class Lancamento_Helper
     {
         for (int i = 0; i < cb_gramas.getCount(); i++)
         {
-            if (cb_gramas.getItemAtPosition(i).toString().equals(l_tb.getQuantidadeRealizada()))
+            if (cb_gramas.getItemAtPosition(i).toString().equals(l_tb.getQuantidade_realizada()))
             {
                 cb_gramas.setSelection(i);
             }
@@ -107,7 +108,7 @@ public class Lancamento_Helper
     public void loadImagem(Activity activity)
     {
         ImageView  vImage = (ImageView) activity.findViewById(R.id.vImage);
-        Picasso.with(activity).load("https://raw.githubusercontent.com/BernardoM/Trabalho-Pish/master/app/src/main/res/drawable/img.png").into(vImage);
+        Picasso.with(activity).load(Constantes.LOAD_IMG).into(vImage);
     }
 
     public void loadComboBox(Activity activity)
