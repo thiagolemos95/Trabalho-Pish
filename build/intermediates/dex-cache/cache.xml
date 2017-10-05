@@ -3,48 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="/home/bernardo/.android/build-cache/88bed924dd2e5bc14c0ed175ea2f3a57177d8178/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="3a1bac2cc31df44dbf1f9bbf2c675319503c9271">
-        <dex dex="/home/bernardo/Downloads/Sphero-Android-SDK-master/samples/MyApplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_ebe56b3666fc663dd784f27b2010ca70ca0669df/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/bernardo/Downloads/Sphero-Android-SDK-master/samples/MyApplication/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jar="D:\Workspace\ThiagoPish\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="/home/bernardo/Downloads/Sphero-Android-SDK-master/samples/MyApplication/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_2f7dccf39dd5b67312085c3497821a71bff50fa6/classes.dex" />
+        <dex dex="D:\Workspace\ThiagoPish\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_4f43ccd83c95128f185a45a5ff4a20ec8dc63e4f\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/bernardo/.android/build-cache/7f7a9cdd0fb199185d21524c4454282b6d12c7a1/output/jars/classes.jar"
+        jar="D:\Workspace\ThiagoPish\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="914f5d3e3ace66080e59613708f06d129a222e25">
-        <dex dex="/home/bernardo/Downloads/Sphero-Android-SDK-master/samples/MyApplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_64b574bed9e4a5221bbe01c67601864adfe341d7/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/bernardo/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
-        <dex dex="/home/bernardo/Downloads/Sphero-Android-SDK-master/samples/MyApplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/picasso-2.5.2_d0c7e649bbc78bb5d8d8e0f903e8ee8423b7be7e/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/bernardo/Downloads/Sphero-Android-SDK-master/samples/MyApplication/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="889b368e1f8a285782b88a87c6a62c0532c76bc0">
-        <dex dex="/home/bernardo/Downloads/Sphero-Android-SDK-master/samples/MyApplication/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_78eb2dd4c147dcf2d4fb7fa552ac437a52d49e6e/classes.dex" />
+        sha1="5319d5ed66aba461165aa71451948c47579c746d">
+        <dex dex="D:\Workspace\ThiagoPish\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_c6d5fe327cad7e3b7f2135e74732c6caa14c9b8c\classes.dex" />
     </item>
 
 </items>
