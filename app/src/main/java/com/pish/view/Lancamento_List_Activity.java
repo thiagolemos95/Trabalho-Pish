@@ -1,5 +1,6 @@
 package com.pish.view;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -19,6 +20,7 @@ import com.pish.connection.Connection;
 import com.pish.dao.Lancamento_Dao;
 import com.pish.helper.Lancamento_Helper;
 import com.pish.model.Lancamento;
+import com.pish.task.Get_Lacamento_Json;
 import com.pish.task.Post_Lancamento_Json;
 
 import java.util.List;
@@ -60,6 +62,7 @@ public class Lancamento_List_Activity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+                //new Get_Lacamento_Json(Lancamento_List_Activity.this, ProgressDialog.STYLE_HORIZONTAL).execute();
                 Intent intentVaiProFormulario = new Intent(Lancamento_List_Activity.this, Cadastro_Lancamento_Activity.class);
                 startActivity(intentVaiProFormulario);
             }
@@ -68,10 +71,10 @@ public class Lancamento_List_Activity extends AppCompatActivity
         registerForContextMenu(list_lancamento);
     }
 
-    private void loadLancamentoList()
+    public void loadLancamentoList()
     {
-        Lancamento_Dao l_dao = new Lancamento_Dao(this);
-        List<Lancamento> lancamentos = l_dao.getLancamentos(this);
+        l_dao                           = new Lancamento_Dao(this);
+        List<Lancamento> lancamentos    = l_dao.getLancamentos(this);
         l_dao.close();
 
         Lancamento_Adapter adapter = new Lancamento_Adapter(this, lancamentos);
@@ -90,6 +93,26 @@ public class Lancamento_List_Activity extends AppCompatActivity
     {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
         l_tb = (Lancamento) list_lancamento.getItemAtPosition(info.position);
+
+        MenuItem sincronizar = menu.add("Sincronizar com Servidor");
+
+        sincronizar.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener()
+        {
+            public boolean onMenuItemClick(MenuItem item)
+            {
+                l_dao = new Lancamento_Dao(Lancamento_List_Activity.this);
+
+                l_dao.deleteAll();
+
+                l_dao.close();
+
+                new Get_Lacamento_Json(Lancamento_List_Activity.this, ProgressDialog.STYLE_HORIZONTAL).execute();
+
+                loadLancamentoList();
+
+                return false;
+            }
+        });
 
         MenuItem send = menu.add("Enviar Lançamento");
 

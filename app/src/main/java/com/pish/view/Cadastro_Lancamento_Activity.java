@@ -40,19 +40,19 @@ public class Cadastro_Lancamento_Activity extends AppCompatActivity
     {
         Lancamento l_tb = l_helper.getLancamento();
 
-        Lancamento_Dao dao = new Lancamento_Dao(this);
+        Lancamento_Dao l_dao = new Lancamento_Dao(this);
 
         if (l_tb.getId() != null)
         {
-            dao.update(l_tb);
+            l_dao.update(l_tb);
             Toast.makeText(Cadastro_Lancamento_Activity.this, "Lancamento alterado com sucesso!", Toast.LENGTH_SHORT).show();
         }
         else
         {
-            dao.insert(l_tb);
+            l_dao.insert(l_tb);
             Toast.makeText(Cadastro_Lancamento_Activity.this, "Lancamento cadastro com sucesso!", Toast.LENGTH_SHORT).show();
         }
-        dao.close();
+        l_dao.close();
         finish();
     }
 }

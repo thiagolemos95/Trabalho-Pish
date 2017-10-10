@@ -75,7 +75,7 @@ public class Lancamento_Dao extends SQLiteOpenHelper
 
     public List<Lancamento> getLancamentos(Context ctx)
     {
-        String sql = "SELECT * FROM Lancamento;";
+        String sql = "SELECT * FROM Lancamento";
         SQLiteDatabase db = getReadableDatabase();
         Cursor c = db.rawQuery(sql, null);
 
@@ -109,6 +109,14 @@ public class Lancamento_Dao extends SQLiteOpenHelper
         db.delete("Lancamento", "id = ?", params);
     }
 
+    public void deleteAll()
+    {
+        SQLiteDatabase db = getWritableDatabase();
+
+        //String[] params = {String.valueOf(l_tb.getId())};
+        db.delete("Lancamento", "", null);
+    }
+
     public void update(Lancamento l_tb)
     {
         SQLiteDatabase db = getWritableDatabase();
@@ -117,5 +125,28 @@ public class Lancamento_Dao extends SQLiteOpenHelper
 
         String[] params = {String.valueOf(l_tb.getId())};
         db.update("Lancamento", dados, "id = ?", params);
+    }
+
+    public ArrayList<Lancamento> arrayLancamento(Lancamento[] l_array)
+    {
+        ArrayList<Lancamento> l_list = new ArrayList<Lancamento>();
+
+        for (int i = 0; i < l_array.length; i++)
+        {
+            Lancamento l_tb = new Lancamento();
+
+            l_tb.setId(l_array[i].getId());
+            l_tb.setData_cadastro(l_array[i].getData_cadastro());
+            l_tb.setData_lancamento(l_array[i].getData_lancamento());
+            l_tb.setTipo_lancamento(l_array[i].getTipo_lancamento());
+            l_tb.setHora(l_array[i].getHora());
+            l_tb.setMinutos(l_array[i].getMinutos());
+            l_tb.setQuantidade_prevista(l_array[i].getQuantidade_prevista());
+            l_tb.setQuantidade_realizada(l_array[i].getQuantidade_realizada());
+            l_tb.setStatus(l_array[i].getStatus());
+
+            l_list.add(l_tb);
+        }
+        return l_list;
     }
 }
