@@ -1,9 +1,6 @@
 package com.pish.model;
 
-import android.icu.text.SimpleDateFormat;
-
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * Created by Pc-Joao on 02/10/2017.

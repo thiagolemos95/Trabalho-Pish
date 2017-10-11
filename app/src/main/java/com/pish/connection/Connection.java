@@ -36,7 +36,7 @@ public class Connection
         this.ctx = ctx;
     }
 
-    public String lerUrlServico(String urlServico) throws IOException, TimeoutException
+    public String getJson(String urlServico) throws IOException, TimeoutException
     {
         String dados = "";
         InputStream objDadosInputStream 	= null;
