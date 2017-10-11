@@ -1,19 +1,19 @@
 <resources>
     <string name="app_name">My Application</string>
-<string name="country_prompt">Choose a country</string>
+    <string name="country_prompt">Choose a country</string>
 
-<string-array name="Quantidade">
-    <item>100g</item>
-    <item>200g</item>
-    <item>300g</item>
-    <item>400g</item>
-    <item>500g</item>
-    <item>600g</item>
-    <item>700g</item>
-    <item>800g</item>
-    <item>900g</item>
-    <item>1000g</item>
-</string-array>
+    <string-array name="Quantidade">
+        <item>100g</item>
+        <item>200g</item>
+        <item>300g</item>
+        <item>400g</item>
+        <item>500g</item>
+        <item>600g</item>
+        <item>700g</item>
+        <item>800g</item>
+        <item>900g</item>
+        <item>1000g</item>
+    </string-array>
     <string-array name="horas">
         <item>00 horas</item>
         <item>01 horas</item>
