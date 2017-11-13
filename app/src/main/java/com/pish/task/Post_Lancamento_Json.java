@@ -77,7 +77,7 @@ public class Post_Lancamento_Json extends AsyncTask<Object, Integer, String>
     {
         try
         {
-            status = new Connection("http://alimentador.herokuapp.com/api/lancamento/", ctx).postJson(l_helper.json);
+            status = new Connection("http://alimentador01.herokuapp.com/api/lancamento/", ctx).postJson(l_helper.json);
         }
         catch (Exception e)
         {
